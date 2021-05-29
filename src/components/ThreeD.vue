@@ -39,13 +39,14 @@ export default {
   name: "ThreeD",
   data(){
     return{
-      navlist: ["Home", "Swiper", "Forest", "Cube", "Moon"],
+      navlist: ["Home", "Swiper", "Forest", "Cube", "Moon", "Focus"],
       bgcolor: {
         '0': ['#485461', '#28313b'],
         '1': ['rgb(126, 118, 199)', 'rgb(44, 35, 128)'],
         '2': ['rgb(90, 163, 89)', 'rgb(34, 110, 33)'],
         '3': ['#be5959', '#8f3434'],
-        '4': ['#4a2b7c','#2b1055']
+        '4': ['#4a2b7c','#2b1055'],
+        '5': ['rgb(201, 189, 87)','rgb(138, 127, 28)']
       },
       vh100: false,
       isactive:false,

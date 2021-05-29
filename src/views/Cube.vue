@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {getCubeImg} from '../network/getCube'
+import {getImg} from '../network/getImg'
 // import axios from 'axios'
 // import {apikey} from '../common/utils'
 
@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted(){
-    getCubeImg("food",7).then(res => {
+    getImg("food",7).then(res => {
       res.hits.forEach( item => {
         this.imgList.push(item.largeImageURL)
       })
@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .cube{
   width: 100%;
   height: 100vh;

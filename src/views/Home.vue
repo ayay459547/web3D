@@ -25,10 +25,11 @@
 
     <div class="read" :class="{hideRead:ishide}">
       <p>這個網頁是使用 Vue2.0 製作</p>
-      <p>Forest 有使用 vanilla-tilt 完成卡片效果</p>
-      <p>axios 請求 pixbay.com 的圖片 完成 Cube 部分</p>
-      <p>製作日期 : 2021/5</p>
-      <p>我的 github : ayay459547</p> 
+      <p>Swiper使用 Swiperjs 完成 </p>
+      <p>Forest使用 vanilla-tilt 完成卡片效果</p>
+      <p>axios 請求 pixbay.com 的圖片完成Cube部分</p>
+      <p>沒寫就是沒有引用其他外掛</p>
+      <p>製作日期: 2021/5, 我的github: ayay459547</p> 
       <button @click="ishideClick">
         <div class="bar"></div>
       </button>
@@ -231,7 +232,8 @@ export default {
     border-radius: 30px;
     text-align: center;
     padding: 20px;
-    font-size: 20px;
+    font-size: 16px;
+    line-height: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

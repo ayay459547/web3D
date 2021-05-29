@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    
+    bgImg: ""
   },
   mutations: {
-
+    changeImgUrl(state, url){
+      state.bgImg = url
+    }
   },
   actions: {
   },

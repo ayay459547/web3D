@@ -1,7 +1,7 @@
 import {request} from './request'
 import {apikey} from '../common/utils'
 
-export function getCubeImg(q,per_page){
+export function getImg(q,per_page){
   return request({
     url: "/",
     params: {

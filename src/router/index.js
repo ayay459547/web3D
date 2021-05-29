@@ -8,6 +8,7 @@ const Moon = () => import("../views/Moon.vue")
 const Cube = () => import("../views/Cube.vue")
 const Forest = () => import("../views/Forest.vue")
 const Swiper = () => import("../views/Swiper.vue")
+const Focus = () => import("../views/Focus.vue")
 
 const routes = [
   {
@@ -38,8 +39,12 @@ const routes = [
     path: '/swiper',
     name: 'Swiper',
     component: Swiper
+  },
+  {
+    path: '/focus',
+    name: 'Focus',
+    component: Focus
   }
-
 ]
 
 const router = new VueRouter({
