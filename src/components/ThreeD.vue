@@ -55,16 +55,26 @@ export default {
   },
   computed:{
     // 背景顏色切換
+    navColor(){
+      return this.bgcolor[this.currectIndex][1]
+    },
     background(){
       let currectIndex = this.currectIndex
       return {backgroundImage:`linear-gradient(135deg, ${this.bgcolor[currectIndex][0]} 0%, ${this.bgcolor[currectIndex][1]} 74%)`}
     }
+  },
+  mounted(){
+    const pos = document.documentElement
+    pos.style.setProperty("--navColor", this.navColor)
   },
   methods: {
     clicklink(item, index){
       const link = `/${item.toLowerCase()}`
       this.$router.replace(link)
       this.currectIndex = index
+
+      const pos = document.documentElement
+      pos.style.setProperty("--navColor", this.navColor)
     },
     toggleClass(){
       const hamburger_menu = document.querySelector(".hamburger-menu")
@@ -106,11 +116,16 @@ button {
     height: 3rem;
 
     .menu {
-      padding: 0 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #fff;
+      @media screen and (max-width: 600px){
+        padding: 0 2rem;
+      }
+      @media screen and (min-width: 601px){
+        padding: 0 4rem;
+      }
 
       .logo {
         font-size: 1.1rem;
@@ -132,8 +147,8 @@ button {
         justify-content: flex-end;
 
         .bar {
-          width: 1.9rem;
-          height: 1.5px;
+          width: 2rem;
+          height: 2.5px;
           border-radius: 2px;
           background-color: #eee;
           transition: 0.5s;
@@ -210,12 +225,23 @@ button {
   right: 0;
   top: 0;
   height: 100vh;
-  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
 
   ul {
+
+    @media screen and (max-width: 600px) {
+      background-color: var(--navColor);
+      padding: 15px;
+      margin-right: 10px;
+      opacity: 0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      flex-flow: wrap;
+    }
+    
     list-style: none;
     li {
       width: 70px;
@@ -249,19 +275,28 @@ button {
     }
 
     .sure-btn{
-      margin-top: 30px;
-      margin-left: -25px;
-      padding: 8px 40px;
+      margin-top: 40px;
+      margin-left: -20px;
       border-radius: 30px;
       background-color: rgba(91, 99, 117, 0.7);
       color: #fff;
       transition: 0.3s;
       opacity: 0;
       animation: hide 0.5s forwards ease;
+
+      @media screen and (max-width: 600px) {
+        padding: 5px 10px;
+      }
+      @media screen and (min-width: 601px) {
+        padding: 8px 30px;
+      }
     }
   }
 }
-
+.container.active .links ul{
+  opacity: 0.7;
+  z-index: 5;
+}
 .container.active .links li,
 .container.active .links .sure-btn {
   animation: appear 0.5s forwards ease 0.25s;

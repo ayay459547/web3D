@@ -1,9 +1,9 @@
 <template>
   <div class="forest-container">
-    <video class="con-video" src="../assets/video/forest.mp4" autoplay muted loop></video>
+    <video class="con-video" :src="videoUrl[1]" autoplay muted loop></video>
       <div class="wrapper">
         <div class="card">
-          <video class="card-video" src="../assets/video/forest.mp4" autoplay muted loop></video>
+          <video class="card-video" :src="videoUrl[1]" autoplay muted loop></video>
           <div class="title">
             <p>FOREST</p>
           </div>
@@ -14,10 +14,22 @@
 
 <script>
 import VanillaTilt from 'vanilla-tilt'
+import {getVideo} from "../network/getVideo"
 
 export default {
   name: "Forest",
+  data(){
+    return {
+      videoUrl: []
+    }
+  },
   mounted() {
+    getVideo("forest",3).then(res => {
+      res.hits.forEach( item => {
+        this.videoUrl.push(item.videos.medium.url)
+      })
+    })
+
     VanillaTilt.init(document.querySelector(".card"), {
 		max: 25,
 		speed: 400,
@@ -30,6 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@function pxToVw($px){
+  @return $px * 100 / 1366 + vw;
+}
+
 .forest-container{
   width: 100%;
   height: 100vh;
@@ -54,8 +70,10 @@ export default {
     align-items: center;
 
     .card{
-      width: 250px;
-      height: 450px;
+      width: pxToVw(400);
+      height: pxToVw(800);
+      max-height: 500px;
+      max-width: 300px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -63,25 +81,27 @@ export default {
       transition: all 0.1s;
 
       &:hover{
-        width: 300px;
-        height: 500px;
+        width: pxToVw(500);
+        height: pxToVw(900);
+        max-height: 600px;
+        max-width: 400px;
 
         video{
-          width: 300px;
-          height: 500px;
+          width: pxToVw(500);
+          height: pxToVw(900);
         }
       }
 
       .card-video{
-        width: 250px;
-        height: 450px;
+        width: pxToVw(400);
+        height: pxToVw(800);
         object-fit: cover;
         position: absolute;
       }
       .title{
         transform: rotate(270deg);
         letter-spacing: 10px;
-        font-size: 90px;
+        font-size: pxToVw(90);
         font-weight: 900;
         color: #fff;
       }

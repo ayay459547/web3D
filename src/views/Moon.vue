@@ -23,13 +23,7 @@
         iusto praesentium, nulla dolorum quasi harum aperiam quam ea facilis odit vel magni eos 
         labore recusandae dolores perferendis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deleniti nobis voluptas 
         iusto praesentium, nulla dolorum quasi harum aperiam quam ea facilis odit vel magni eos 
-        labore recusandae dolores perferendis!<br><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deleniti nobis voluptas 
-        iusto praesentium, nulla dolorum quasi harum aperiam quam ea facilis odit vel magni eos 
-        labore recusandae dolores perferendis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deleniti nobis voluptas 
-        iusto praesentium, nulla dolorum quasi harum aperiam quam ea facilis odit vel magni eos 
-        labore recusandae dolores perferendis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum deleniti nobis voluptas 
-        iusto praesentium, nulla dolorum quasi harum aperiam quam ea facilis odit vel magni eos 
-        labore recusandae dolores perferendis!<br><br></p>
+        labore recusandae dolores perferendis!<br></p>
     </div>
   </div>
 </template>
@@ -67,7 +61,7 @@ export default {
   methods: {
     readMore(){
       const sec = document.querySelector('.sec')
-      console.log(sec.offsetTop)
+      // console.log(sec.offsetTop)
       window.scrollTo({
         top: 954,
         left: 0,
@@ -150,9 +144,15 @@ export default {
 
   .sec{
     position: relative;
-    padding: 80px;
     background-color: #1c0522;
     z-index: 11;
+
+    @media screen and (max-width: 600px) {
+      padding: 50px;
+    }
+    @media screen and (min-width: 601px) {
+       padding: 80px;
+    }
 
     h2{
       font-size: 3.5em;

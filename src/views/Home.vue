@@ -16,8 +16,8 @@
             <div class="zhan">展展展</div>
           </div>
         </h2>
-        <p>
-          請點右上選單 , 還有其他四種不同效果的網頁
+        <p class="other">
+          請點右上選單還有其他<br v-show="w600"/>四種不同效果的網頁
         </p>
         <button class="btn" @click="ishideClick">點擊說明</button>
       </div>
@@ -43,8 +43,20 @@ export default {
   name: 'Home',
   data(){
     return{
-      ishide: true
+      ishide: true,
+      w600: true
     }
+  },
+  mounted(){
+    this.w600 = (document.body.scrollWidth < 600) ? true : false
+    window.addEventListener('resize', e => {
+      const cWidth = document.body.scrollWidth
+      if(cWidth < 600){
+        this.w600 = true
+      }else{
+        this.w600 = false
+      }
+    })
   },
   methods:{
     ishideClick(){
@@ -55,7 +67,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .home {
   min-height: 100vh;
   width: 100%;
@@ -82,13 +93,20 @@ export default {
 
       .title {
         font-size: 2.7rem;
-        
+
         .myid{
           width: 222px;
           height: 45px;
-          display: inline-block;
           overflow: hidden;
           position: relative;
+
+          @media screen and (max-width: 600px){
+            margin: 0 auto;
+            display: block;
+          }
+          @media screen and (min-width: 601px){
+            display: inline-block;
+          }
 
           .anid{
             position: relative;
@@ -225,9 +243,8 @@ export default {
     position: fixed;
     left: 50%;
     transform: translate(-50%, 50%);
-    width: 40%;
     height: 300px;
-    background-color: rgb(194, 194, 194);
+    background-color: rgba(194, 194, 194, 0.95);
     border: 5px solid rgba(91, 99, 117);
     border-radius: 30px;
     text-align: center;
@@ -239,6 +256,13 @@ export default {
     justify-content: space-evenly;
     position: relative;
     transition: all 0.4s ease;
+
+    @media screen and (max-width: 900px) {
+      width: 80%;
+    }
+    @media screen and (min-width: 901px) {
+      width: 40%;
+    }
 
     &.hideRead{
       transform: translate(-50%, -100%);

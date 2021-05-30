@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@function pxToVw($px){
+  @return $px * 100 / 1366 + vw;
+}
+
 @function bgimg($imgurl){
   @return $imgurl
 }
@@ -89,7 +93,7 @@ export default {
       p{
         position: absolute;
         color: #fff;
-        font-size: 10em;
+        font-size: pxToVw(300);
         font-weight: 900;
         transform: translate(0, 0);
         transform: translate(calc(var(--x)/25),calc(var(--y)/25));

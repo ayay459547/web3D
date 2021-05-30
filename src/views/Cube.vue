@@ -50,6 +50,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .cube{
   width: 100%;
   height: 100vh;
