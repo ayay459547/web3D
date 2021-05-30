@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <three-d>
-      <keep-alive exclude="Focus">
+      <keep-alive exclude="Forest,Focus">
         <router-view></router-view>
       </keep-alive>
     </three-d>
