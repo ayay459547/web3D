@@ -17,7 +17,7 @@
           </div>
         </h2>
         <p class="other">
-          請點右上選單還有其他<br v-show="w600"/>四種不同效果的網頁
+          請點右上選單還有其他<br v-show="w600"/>五種不同效果的網頁
         </p>
         <button class="btn" @click="ishideClick">點擊說明</button>
       </div>
